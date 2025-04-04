@@ -92,7 +92,6 @@
   }
   .right {
     height: 100%;
-    background-color: red;
     grid-row: span 2;
 
     align-content: center;
