@@ -1,0 +1,152 @@
+@font-face {
+  font-family: "Involve";
+  src: url(/fonts/Involve-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Involve";
+  src: url(/fonts/Involve-Medium.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Involve";
+  src: url(/fonts/Involve-SemiBold.ttf);
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Involve";
+  src: url(/fonts/Involve-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Involve";
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --accent-gradient: linear-gradient(0deg, #00f6a8 0%, #6affb5 100%);
+  --border-color: rgba(239, 239, 239, 1);
+  --card-bg: rgba(221, 255, 234, 1);
+  --footer-bg: rgba(245, 245, 245, 1);
+  --footer-text: rgba(134, 134, 134, 1);
+  --heading-text: rgba(0, 183, 125, 1);
+  --primary-black: rgba(40, 40, 40, 1);
+  --primary-black-hover: #535353;
+  --primary-green: rgba(0, 246, 168, 1);
+  --primary-green-hover: #00dd97;
+  --primary-white: rgba(255, 255, 255, 1);
+  --secondary-text-4: rgba(75, 75, 75, 1);
+  --secondary-text: rgba(0, 79, 54, 1);
+  --secondary-text-2: rgba(0, 107, 73, 1);
+  --vector-gradient: linear-gradient(
+    242deg,
+    #fff 0%,
+    rgba(255, 255, 255, 0.61) 49.52%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --box-shadow-black: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+  --box-shadow-green: 0px 6px 32px 0px rgba(0, 246, 168, 0.55);
+  --box-shadow-footer: 0px -4px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+.container {
+  max-width: 1352px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+input {
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.heading-1 {
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 72px;
+  @media screen and (max-width: 950px) {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+.heading-2 {
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 58px;
+  @media screen and (max-width: 400px) {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+.heading-3 {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+}
+.heading-4 {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+}
+.heading-5 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+}
+.heading-5-semibold {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+.text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+}
+.text-semibold {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+}
+.text-bold {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+}

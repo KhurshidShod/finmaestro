@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+  <MainHeader />
+  <HeroComponent />
+  <ReportsDecoding />
+  <WhyUs />
 </template>

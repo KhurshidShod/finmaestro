@@ -1,0 +1,30 @@
+@mixin button(
+  $border: 2px solid transparent,
+  $background-color: var(--primary-green),
+  $color: var(--primary-black)
+) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  background: $background-color;
+  border: $border;
+  color: $color;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: .1s linear;
+  @if $background-color == var(--primary-black){
+    color: var(--primary-white);
+  }
+  &:hover {
+    @if $background-color == var(--primary-black) {
+        background-color: var(--primary-black-hover);
+    }@else if $background-color == var(--primary-green){
+        background-color: var(--primary-green-hover)
+    }@else if $background-color == transparent{
+        background-color: var(--border-color);
+    }
+  }
+}
