@@ -1,4 +1,9 @@
 <template>
+  <TelegramModal
+    @toggleModal="toggleModal"
+    v-if="isModalOpen"
+    :modalText="modalText"
+  />
   <header>
     <div class="container">
       <nav class="nav">
@@ -10,8 +15,7 @@
           />
         </NuxtLink>
         <div class="nav__actions" :class="isNavOpen ? 'navopened' : ''">
-          <svg
-            @click="toggleNav"
+          <!-- <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
@@ -22,12 +26,22 @@
             <path
               d="M 38.982422 6.9707031 A 2.0002 2.0002 0 0 0 37.585938 7.5859375 L 24 21.171875 L 10.414062 7.5859375 A 2.0002 2.0002 0 0 0 8.9785156 6.9804688 A 2.0002 2.0002 0 0 0 7.5859375 10.414062 L 21.171875 24 L 7.5859375 37.585938 A 2.0002 2.0002 0 1 0 10.414062 40.414062 L 24 26.828125 L 37.585938 40.414062 A 2.0002 2.0002 0 1 0 40.414062 37.585938 L 26.828125 24 L 40.414062 10.414062 A 2.0002 2.0002 0 0 0 38.982422 6.9707031 z"
             ></path>
-          </svg>
-          <NuxtLink class="button">Войти</NuxtLink>
-          <NuxtLink to="/registered" class="button">Регистрация</NuxtLink>
+          </svg> -->
+          <button
+            @click="openModal('Войдите <span>через телеграм</span>')"
+            class="button"
+          >
+            Войти
+          </button>
+          <button
+            @click="openModal('Зарегистрируйтесь <span>через телеграм</span>')"
+            class="button"
+          >
+            Регистрация
+          </button>
         </div>
         <svg
-          @click="toggleNav"
+        @click="openModal('Войдите или зарегистрируйтесь <span>через телеграм</span>')"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -63,11 +77,20 @@ export default {
   data() {
     return {
       isNavOpen: false,
+      modalText: "",
+      isModalOpen: false,
     };
   },
   methods: {
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
+    },
+    toggleModal(state) {
+      this.isModalOpen = state;
+    },
+    openModal(el) {
+      this.modalText = el;
+      this.toggleModal(true);
     },
   },
 };
@@ -105,20 +128,7 @@ header {
         }
       }
       @media screen and (max-width: 650px) {
-        width: 100%;
-        position: fixed;
-        top: -100%;
-        left: 0;
-        z-index: 9;
-        flex-direction: column;
-        padding: 100px 20px 50px;
-        backdrop-filter: blur(10px);
-        box-shadow: var(--box-shadow-black);
-        border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
-        &.navopened {
-          top: 0;
-        }
+        display: none;
       }
       .button {
         &:nth-child(2) {
