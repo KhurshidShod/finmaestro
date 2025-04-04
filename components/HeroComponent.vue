@@ -142,6 +142,9 @@
     background-color: var(--primary-white);
     box-shadow: var(--box-shadow-black);
     border-radius: 82px;
+    @media screen and (max-width: 950px) {
+      padding: 20px 45px;
+    }
     @media screen and (max-width: 850px) {
       padding: 0;
       box-shadow: none;
@@ -175,6 +178,26 @@
       max-width: 500px;
       @media screen and (max-width: 850px) {
         width: 100%;
+      }
+      &:first-child {
+        padding-right: 30px;
+        @media screen and (max-width: 850px) {
+          padding-right: 0;
+        }
+      }
+      &:nth-child(3) {
+        padding-right: 30px;
+        padding-left: 30px;
+        @media screen and (max-width: 850px) {
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+      &:last-child {
+        padding-left: 30px;
+        @media screen and (max-width: 850px) {
+          padding-left: 0;
+        }
       }
       div {
         display: flex;
