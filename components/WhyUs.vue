@@ -276,8 +276,8 @@
             </ul>
           </div>
         </div>
-        <ServiceOverview />
-        <div class="whyus__wrapper-price"></div>
+        <ServiceOverview /> 
+        <Pricing />
       </div>
     </div>
   </section>

@@ -23,8 +23,8 @@
               d="M 38.982422 6.9707031 A 2.0002 2.0002 0 0 0 37.585938 7.5859375 L 24 21.171875 L 10.414062 7.5859375 A 2.0002 2.0002 0 0 0 8.9785156 6.9804688 A 2.0002 2.0002 0 0 0 7.5859375 10.414062 L 21.171875 24 L 7.5859375 37.585938 A 2.0002 2.0002 0 1 0 10.414062 40.414062 L 24 26.828125 L 37.585938 40.414062 A 2.0002 2.0002 0 1 0 40.414062 37.585938 L 26.828125 24 L 40.414062 10.414062 A 2.0002 2.0002 0 0 0 38.982422 6.9707031 z"
             ></path>
           </svg>
-          <button>Войти</button>
-          <button>Регистрация</button>
+          <NuxtLink class="button">Войти</NuxtLink>
+          <NuxtLink to="/registered" class="button">Регистрация</NuxtLink>
         </div>
         <svg
           @click="toggleNav"
@@ -85,28 +85,6 @@ header {
         min-width: 168px;
       }
     }
-    // &__logo {
-    //   display: flex;
-    //   justify-content: start;
-    //   align-items: center;
-    //   gap: 6px;
-    //   &-icon {
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     width: 42px;
-    //     height: 42px;
-    //     background-color: var(--primary-green);
-    //     box-shadow: 0.544px 0.544px 0.544px 0px rgba(255, 255, 255, 0.25) inset;
-    //     border-radius: 13px;
-    //   }
-    //   p {
-    //     color: var(--primary-black);
-    //     font-size: 24px;
-    //     font-weight: 700;
-    //     line-height: 24px;
-    //   }
-    // }
     &__actions {
       position: relative;
       display: flex;
@@ -121,7 +99,7 @@ header {
         cursor: pointer;
         @media screen and (max-width: 650px) {
           position: absolute;
-          top: 15px;
+          top: 35px;
           right: 15px;
           display: block;
         }
@@ -133,7 +111,7 @@ header {
         left: 0;
         z-index: 9;
         flex-direction: column;
-        padding: 75px 20px 50px;
+        padding: 100px 20px 50px;
         backdrop-filter: blur(10px);
         box-shadow: var(--box-shadow-black);
         border-bottom-left-radius: 50px;
@@ -142,7 +120,7 @@ header {
           top: 0;
         }
       }
-      button {
+      .button {
         &:nth-child(2) {
           @include button(2px solid var(--primary-black), transparent);
         }
