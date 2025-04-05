@@ -131,7 +131,7 @@ header {
         display: none;
       }
       .button {
-        &:nth-child(2) {
+        &:first-child {
           @include button(2px solid var(--primary-black), transparent);
         }
         &:last-child {
