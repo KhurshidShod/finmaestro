@@ -38,8 +38,10 @@
   border-radius: 56px;
   box-shadow: var(--box-shadow-black);
   margin-top: 24px;
+  overflow: hidden;
   @media screen and (max-width: 850px) {
     padding: 20px;
+    border-radius: 40px;
   }
   .bg_vector {
     position: absolute;

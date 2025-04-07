@@ -77,8 +77,11 @@
     padding: 72px 56px;
     border-radius: 56px;
     box-shadow: var(--box-shadow-black);
-    @media screen and (max-width: 850px) {
+  overflow: hidden;
+
+      @media screen and (max-width: 850px) {
       padding: 20px;
+      border-radius: 40px;
     }
     .bg_vector {
       position: absolute;
@@ -224,6 +227,7 @@
         img {
           width: 40px;
           height: 40px;
+          
         }
       }
     }

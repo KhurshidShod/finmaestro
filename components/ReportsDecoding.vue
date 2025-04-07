@@ -192,7 +192,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       gap: 20px;
-      @media screen and (max-width: 560px) {
+      @media screen and (max-width: 750px) {
         flex-direction: column;
         align-items: center;
       }
@@ -202,7 +202,7 @@
         box-shadow: var(--box-shadow-black);
         overflow: hidden;
         min-width: 220px;
-        @media screen and (max-width: 560px) {
+        @media screen and (max-width: 750px) {
           width: 100%;
           max-width: 400px;
         }
@@ -238,6 +238,7 @@
         align-items: start;
         flex-direction: column;
         border-radius: 36px;
+        flex-grow: 1;
         @media screen and (max-width: 1000px) {
           width: calc(100% / 2 - 1rem);
           flex-grow: 1;

@@ -65,7 +65,7 @@
     align-content: end;
     h2 {
       white-space: nowrap;
-      margin-bottom: 16px;
+      margin-top: 16px;
       color: var(--primary-black);
       @media screen and (max-width: 950px) {
         white-space: wrap;
@@ -84,7 +84,7 @@
   .button {
     display: flex;
     justify-content: start;
-    align-items: center;
+    align-items: start;
     button {
       flex-grow: 1;
       @include button($background-color: var(--primary-green));

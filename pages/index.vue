@@ -31,6 +31,7 @@
   border-radius: 56px;
   box-shadow: var(--box-shadow-black);
   margin-top: 72px;
+  overflow: hidden;
   @media screen and (max-width: 850px) {
     padding: 20px;
     border-radius: 40px;
@@ -70,6 +71,7 @@
       color: var(--primary-black);
       @media screen and (max-width: 850px) {
         font-size: 30px;
+        line-height: 36px;
       }
     }
   }
