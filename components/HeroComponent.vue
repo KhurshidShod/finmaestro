@@ -20,34 +20,34 @@
         </div>
         <div class="finance__banner">
           <div class="finance__banner-item">
-            <img src="/images/banner_item-1.png" alt="" />
+            <img class="item_img" src="/images/banner_item-1.png" alt="" />
             <div>
               <img src="/images/icons/Tick-2.png" alt="" />
-              <p class="text-bold">
-                Настройка финансового учёта кабинета <span>за 5 минут</span>
+              <p class="text-semibold">
+                Настройка финансового учёта кабинета <span class="text-bold">за 5 минут</span>
               </p>
             </div>
           </div>
           <span class="item-border"></span>
           <div class="finance__banner-item">
-            <img src="/images/banner_item-2.png" alt="" />
+            <img class="item_img" src="/images/banner_item-2.png" alt="" />
             <div>
               <img src="/images/icons/Tick-2.png" alt="" />
-              <p class="text-bold">
+              <p class="text-semibold">
                 Считаем реальную чистую прибыль
-                <span>с учетом ВСЕХ дополнительных расходов</span>, включая
+                <span class="text-bold">с учетом ВСЕХ дополнительных расходов</span>, включая
                 брак, кредиты и прочие
               </p>
             </div>
           </div>
           <span class="item-border"></span>
           <div class="finance__banner-item">
-            <img src="/images/banner_item-3.png" alt="" />
+            <img class="item_img" src="/images/banner_item-3.png" alt="" />
             <div>
               <img src="/images/icons/Tick-2.png" alt="" />
-              <p class="text-bold">
+              <p class="text-semibold">
                 Считаем доходность на вложенный капитал
-                <span>по каждому товару</span>
+                <span class="text-bold">по каждому товару</span>
               </p>
             </div>
           </div>
@@ -71,7 +71,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     flex-direction: row;
     background: var(--accent-gradient);
     padding: 72px 56px;
@@ -101,27 +101,37 @@
       align-items: start;
       flex-direction: column;
       z-index: 1;
-      gap: 12px;
       @media screen and (max-width: 850px) {
         width: 100%;
       }
       button {
+        margin-top: 20px;
         @include button($background-color: var(--primary-black));
         @media screen and (max-width: 850px) {
           width: 100%;
         }
       }
       h1 {
+        color: var(--primary-black);
+        @media screen and (max-width: 450px) {
+        }
         span {
           color: var(--secondary-text-2);
         }
       }
       h5 {
+        margin-top: 12px;
         color: var(--secondary-text);
         max-width: 658px;
+        @media screen and (max-width: 450px) {
+          font-size: 18px;
+        }
       }
     }
     &-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 45%;
       z-index: 1;
       @media screen and (max-width: 850px) {
@@ -149,11 +159,7 @@
       padding: 0;
       box-shadow: none;
     }
-    img {
-      width: 150px;
-      height: 150px;
-      aspect-ratio: 1/1;
-    }
+  
     .item-border {
       width: 4px;
       height: 60px;
@@ -178,6 +184,10 @@
       max-width: 500px;
       @media screen and (max-width: 850px) {
         width: 100%;
+      }
+      .item_img{
+        width: 170px;
+        height: 150px;
       }
       &:first-child {
         padding-right: 30px;
@@ -206,6 +216,7 @@
         flex-direction: row;
         gap: 8px;
         p {
+          color: var(--primary-black);
           span {
             color: var(--heading-text);
           }

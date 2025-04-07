@@ -177,10 +177,12 @@
     h1 {
       max-width: 525px;
       margin-bottom: 1rem;
+      color: var(--primary-black);
     }
     p {
       max-width: 525px;
       margin-bottom: 2rem;
+      color: var(--secondary-text-4);
     }
     &-images {
       width: 100%;
@@ -199,7 +201,7 @@
         border-radius: 56px;
         box-shadow: var(--box-shadow-black);
         overflow: hidden;
-        min-width: 250px;
+        min-width: 220px;
         @media screen and (max-width: 560px) {
           width: 100%;
           max-width: 400px;
@@ -213,7 +215,7 @@
     &-features {
       width: 100%;
       display: flex;
-      justify-content: start;
+      justify-content: stretch;
       align-items: stretch;
       flex-direction: row;
       flex-wrap: wrap;
@@ -255,9 +257,11 @@
         }
         h5 {
           margin-bottom: 12px;
+          color: var(--primary-black);
         }
         p {
           margin-bottom: 0;
+          color: var(--secondary-text-4);
         }
       }
     }

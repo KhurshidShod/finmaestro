@@ -288,6 +288,7 @@
     h2 {
       position: relative;
       max-width: 329px;
+      color: var(--primary-black);
       svg {
         position: absolute;
         top: -20px;
@@ -334,6 +335,7 @@
         }
         h5 {
           margin-top: 16px;
+          color: var(--primary-black);
           span {
             color: var(--secondary-text-2);
           }
@@ -374,6 +376,7 @@
         flex-direction: column;
         gap: 62px;
         h1 {
+          color: var(--primary-black);
           span {
             color: var(--heading-text);
           }
@@ -381,6 +384,10 @@
         img {
           width: 345px;
           height: 345px;
+          @media screen and (max-width: 400px) {
+            width: 170px;
+            height: 170px;
+          }
         }
       }
       .right {
@@ -393,6 +400,7 @@
             flex-direction: row;
             gap: 4px;
             margin-bottom: 12px;
+            color: var(--primary-black);
             &:last-child {
               margin-bottom: 0;
             }

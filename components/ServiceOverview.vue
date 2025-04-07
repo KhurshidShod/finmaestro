@@ -54,7 +54,8 @@
   border-radius: 56px;
   background-color: var(--primary-white);
   box-shadow: var(--box-shadow-black);
-  gap: 32px;
+  column-gap: 32px;
+  row-gap: 24px;
   @media screen and (max-width: 950px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -65,13 +66,14 @@
     h2 {
       white-space: nowrap;
       margin-bottom: 16px;
+      color: var(--primary-black);
       @media screen and (max-width: 950px) {
         white-space: wrap;
       }
     }
     p {
       max-width: 320px;
-
+      color: var(--secondary-text-4);
       @media screen and (max-width: 950px) {
         br {
           display: none;
@@ -81,9 +83,10 @@
   }
   .button {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     button {
+      flex-grow: 1;
       @include button($background-color: var(--primary-green));
       @media screen and (max-width: 950px) {
         width: 100%;

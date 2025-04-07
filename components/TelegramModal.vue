@@ -1,6 +1,7 @@
 <template>
   <div class="modal">
-    <div class="modal__wrapper">
+    <div class="container">
+        <div class="modal__wrapper">
       <svg
         @click="$emit('toggleModal', false)"
         class="close"
@@ -30,6 +31,7 @@
           /></svg>Перейти
       </button>
     </div>
+</div>
   </div>
 </template>
 <script>
@@ -46,11 +48,18 @@ export default {
   left: 0;
   z-index: 99999;
   background: rgba(0, 0, 0, 0.6);
+  .container{
+    position: relative;
+  }
   &__wrapper {
     svg.close {
       position: absolute;
       top: 24px;
       right: 24px;
+      @media screen and (max-width: 470px) {
+        top: 15px;
+        right: 15px;
+    }
     }
     @media screen and (max-width: 470px) {
         max-width: 246px;
@@ -58,7 +67,7 @@ export default {
     }
     position: absolute;
     top: 100px;
-    right: 10%;
+    right: 20px;
     padding: 42px;
     background-color: var(--primary-white);
     border-radius: 32px;

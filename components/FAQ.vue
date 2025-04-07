@@ -15,7 +15,7 @@
             <div class="item__header">
               <h1 class="heading-5">{{ item.question }}</h1>
               <svg
-                v-if="activeDataIndex === i+1"
+                v-if="activeDataIndex === i + 1"
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
                 height="40"
@@ -105,6 +105,9 @@ export default {
     justify-content: start;
     align-items: start;
     flex-direction: column;
+    h1{
+      color: var(--primary-black);
+    }
     &-accordion {
       width: 100%;
       display: flex;
@@ -126,12 +129,22 @@ export default {
           display: flex;
           justify-content: space-between;
           align-items: center;
-
+          h1{
+            color: var(--primary-black);
+          }
+          svg {
+            min-width: 40px;
+            min-height: 40px;
+          }
         }
 
         &__body {
           overflow: hidden;
           transition: height 0.3s ease, margin-top 0.3s ease;
+          p {
+            max-width: 750px;
+            color: var(--secondary-text-4);
+          }
         }
 
         &.active {

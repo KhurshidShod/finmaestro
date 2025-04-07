@@ -230,6 +230,7 @@
   }
   h1 {
     align-content: end;
+    color: var(--primary-black);
   }
   ul {
     grid-row: span 2;
@@ -243,6 +244,7 @@
       align-items: start;
       gap: 4px;
       margin-top: 6px;
+      color: var(--primary-black);
     }
   }
   .price {
@@ -283,6 +285,7 @@
       h1 {
         display: flex;
         align-items: end;
+        color: var(--primary-black);
         p {
           margin-left: -7px;
         }

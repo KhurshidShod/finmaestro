@@ -8,7 +8,7 @@
     <div class="service__banner">
     <img src="/images/Vector.png" class="bg_vector" alt="" />
     <div class="service__banner-left">
-      <h1 class="heading-1">Протестируйте преимущества нашего сервиса</h1>
+      <h1 class="heading-2">Протестируйте преимущества нашего сервиса</h1>
       <button>Попробовать 7 дней бесплатно</button>
     </div>
     <div class="service__banner-right">
@@ -24,7 +24,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   flex-direction: row;
   background: var(--accent-gradient);
   padding: 72px 56px;
@@ -33,6 +33,7 @@
   margin-top: 72px;
   @media screen and (max-width: 850px) {
     padding: 20px;
+    border-radius: 40px;
   }
   .bg_vector {
     position: absolute;
@@ -63,6 +64,12 @@
       @include button($background-color: var(--primary-black));
       @media screen and (max-width: 850px) {
         width: 100%;
+      }
+    }
+    h1{
+      color: var(--primary-black);
+      @media screen and (max-width: 850px) {
+        font-size: 30px;
       }
     }
   }
