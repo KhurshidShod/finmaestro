@@ -215,7 +215,7 @@
     &-features {
       width: 100%;
       display: flex;
-      justify-content: stretch;
+      justify-content: center;
       align-items: stretch;
       flex-direction: row;
       flex-wrap: wrap;
