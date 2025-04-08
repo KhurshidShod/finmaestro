@@ -57,7 +57,7 @@
     align-items: start;
     flex-direction: column;
     z-index: 1;
-    gap: 12px;
+    gap: 24px;
     @media screen and (max-width: 850px) {
       width: 100%;
     }

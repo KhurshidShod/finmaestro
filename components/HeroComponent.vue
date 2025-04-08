@@ -64,7 +64,6 @@
   align-items: center;
   flex-direction: column;
   gap: 72px;
-  padding-top: 24px;
   padding-bottom: 72px;
   .service__banner {
     position: relative;

@@ -99,7 +99,8 @@ export default {
 header {
   .nav {
     width: 100%;
-    height: 100px;
+    padding-top: 24px;
+    padding-bottom: 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -56,6 +56,7 @@ export default {
       position: absolute;
       top: 24px;
       right: 24px;
+      cursor: pointer;
       @media screen and (max-width: 470px) {
         top: 15px;
         right: 15px;

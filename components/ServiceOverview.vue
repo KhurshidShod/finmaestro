@@ -65,7 +65,6 @@
     align-content: end;
     h2 {
       white-space: nowrap;
-      margin-top: 16px;
       color: var(--primary-black);
       @media screen and (max-width: 950px) {
         white-space: wrap;
@@ -73,6 +72,7 @@
     }
     p {
       max-width: 320px;
+      margin-top: 16px;
       color: var(--secondary-text-4);
       @media screen and (max-width: 950px) {
         br {
