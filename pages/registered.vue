@@ -9,8 +9,9 @@
             <h1 class="heading-1">
                 Спасибо за регистрацию
             </h1>
-            <h5 class="text">
-                Активируйте пробный период. Надеемся, вы останетесь довольны нашим сервисом
+            <h5 class="heading-5-semibold">
+              Точно расшифровываем отчеты маркетплейсов, показываем чистую
+              прибыль и помогаем принимать правильные решения
             </h5>
             <button>Попробовать 7 дней бесплатно</button>
           </div>
@@ -64,7 +65,7 @@
     flex-direction: column;
     z-index: 1;
     gap: 12px;
-    h1{
+    h1 {
       color: var(--primary-black);
     }
     @media screen and (max-width: 850px) {
@@ -77,9 +78,13 @@
       }
     }
     h5 {
-      color: var(--secondary-text);
-      max-width: 351px;
-    }
+        margin-top: 12px;
+        color: var(--secondary-text);
+        max-width: 658px;
+        @media screen and (max-width: 450px) {
+          font-size: 18px;
+        }
+      }
   }
   &-right {
     width: 45%;
