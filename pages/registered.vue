@@ -65,6 +65,9 @@
     flex-direction: column;
     z-index: 1;
     gap: 12px;
+    h1{
+      color: var(--primary-black);
+    }
     @media screen and (max-width: 850px) {
       width: 100%;
     }

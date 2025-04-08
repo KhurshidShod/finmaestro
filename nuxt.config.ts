@@ -8,6 +8,7 @@ export default defineNuxtConfig({
       ]
     }
   },
+  ssr: true,
   devtools: { enabled: true },
   css: ["~/assets/styles/main.scss"],
   vite: {
