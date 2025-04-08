@@ -203,11 +203,39 @@
           3,500 ₽/
           <p class="text-semibold">месяц</p>
         </h1>
-        <button>Оставить заявку</button>
+        <button @click="navigateFunction">Оставить заявку</button>
       </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    async navigateFunction() {
+      await this.scrollToTop();
+      setTimeout(() => {
+        navigateTo("/registered");
+      }, 250);
+    },
+    scrollToTop() {
+      return new Promise((resolve) => {
+        const checkIfAtTop = () => {
+          if (window.scrollY === 0) {
+            window.removeEventListener("scroll", checkIfAtTop);
+            resolve();
+          }
+        };
+        window.addEventListener("scroll", checkIfAtTop);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (window.scrollY === 0) {
+          resolve();
+        }
+      });
+    },
+  },
+};
+</script>
+
 <style lang="scss" scoped>
 .pricing {
   width: 100%;
