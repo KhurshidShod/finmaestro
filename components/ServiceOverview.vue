@@ -9,7 +9,7 @@
     </div>
     <div class="right">
       <div class="right-image">
-        <button class="play_vd">
+        <button v-if="!showVideo" class="play_vd" @click="playVideo()">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="42"
@@ -35,7 +35,16 @@
             </defs>
           </svg>
         </button>
-        <img src="/images/video_thumbnail.jpeg" alt="" />
+        <iframe
+          width="560"
+          height="315"
+          :src="videoUrl ? videoUrl : 'https://www.youtube.com/embed/f3gOTot5dAA?si=L7-NXBDiDE8OGG5t&amp;controls=0'"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
     <div class="button">
@@ -43,6 +52,29 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      showVideo: false,
+      videoId: 'f3gOTot5dAA', // Replace with your YouTube video ID
+    }
+  },
+  computed: {
+    videoUrl() {
+      // Only add autoplay when video is shown
+      return this.showVideo
+        ? `https://www.youtube.com/embed/${this.videoId}?autoplay=1&rel=0&modestbranding=1&controls=1`
+        : ''
+    },
+  },
+  methods: {
+    playVideo() {
+      this.showVideo = true
+    },
+  },
+}
+</script>
 <style lang="scss" scoped>
 .service__overview {
   width: 100%;
@@ -100,6 +132,11 @@
     align-content: center;
     &-image {
       position: relative;
+      iframe {
+        width: 100%;
+        object-fit: cover;
+        max-width: 773px;
+      }
       .play_vd {
         position: absolute;
         top: 50%;

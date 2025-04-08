@@ -76,7 +76,7 @@
     padding: 72px 56px;
     border-radius: 56px;
     box-shadow: var(--box-shadow-black);
-  overflow: hidden;
+    overflow: hidden;
 
       @media screen and (max-width: 850px) {
       padding: 20px;
