@@ -13,7 +13,7 @@
 </svg>
                     </div>
                     <p class="text">INFO@MPSYSTEM.IO</p>
-                    <button>Оставить заявку</button>
+                    <button @click="openModal">Оставить заявку</button>
                 </div>
                 <div class="footer__wrapper-service">
                     <h5 class="heading-5">Сервис</h5>
@@ -31,6 +31,20 @@
         </div>
     </footer>
 </template>
+<script>
+export default {
+  inject: ['scrollTop'],
+  methods: {
+    async openModal() {
+      await this.scrollTop();
+      this.$emit(
+        "open-modal",
+        "Войдите или зарегистрируйтесь <span>через телеграм</span>"
+      );
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
     .footer{
         padding: 54px 138px;

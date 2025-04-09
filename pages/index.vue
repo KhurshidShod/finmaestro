@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <Footer />
+  <Footer @open-modal="handleHeroModal" />
 </template>
 
 <script>
