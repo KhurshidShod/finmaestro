@@ -1,5 +1,10 @@
 <template lang="">
-    <MainHeader />
+    <MainHeader
+    :modalText="modalText"
+    :isModalOpen="isModalOpen"
+    @toggleModal="toggleModal"
+    @update:modalText="updateModalText"
+  />
     <div class="registered">
         <div class="container">
             <div class="registered__wrapper">
@@ -12,19 +17,65 @@
             <h5 class="heading-5-semibold">
               Активируйте пробный период. Надеемся, вы останетесь довольны нашим сервисом
             </h5>
-            <button>Попробовать 7 дней бесплатно</button>
+            <button @click="openModall">Попробовать 7 дней бесплатно</button>
           </div>
           <div class="service__banner-right">
             <img src="/images/heart.png" alt="" />
           </div>
         </div>
-                <ServiceOverview />
-                <Pricing />
+                <ServiceOverview @open-modal="handleHeroModal" />
+                <Pricing @open-modal="handleHeroModal" />
             </div>
         </div>
     </div>
   <Footer />
 </template>
+<script>
+export default {
+  data() {
+    return {
+      modalText: "",
+      isModalOpen: false,
+    };
+  },
+  provide(){
+    return {
+      scrollTop: this.scrollToTop
+    }
+  },
+  methods: {
+    async openModall() {
+      await this.scrollToTop();
+      this.handleHeroModal("Войдите или зарегистрируйтесь <span>через телеграм</span>");
+    },
+    toggleModal(state) {
+      this.isModalOpen = state;
+    },
+    updateModalText(message) {
+      this.modalText = message;
+    },
+    handleHeroModal(message) {
+      this.modalText = message;
+      this.isModalOpen = true;
+    },
+    scrollToTop() {
+      return new Promise((resolve) => {
+        const checkIfAtTop = () => {
+          if (window.scrollY === 0) {
+            window.removeEventListener("scroll", checkIfAtTop);
+            resolve();
+          }
+        };
+        window.addEventListener("scroll", checkIfAtTop);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (window.scrollY === 0) {
+          resolve();
+        }
+      });
+    },
+  },
+};
+</script>
 <style lang="scss">
 .service__banner {
   position: relative;
