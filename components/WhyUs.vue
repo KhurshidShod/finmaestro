@@ -276,12 +276,24 @@
             </ul>
           </div>
         </div>
-        <ServiceOverview /> 
-        <Pricing />
       </div>
     </div>
   </section>
 </template>
+<script>
+export default {
+  inject: ['scrollTop'],
+  methods: {
+    async openModal() {
+      await this.scrollTop();
+      this.$emit(
+        "open-modal",
+        "Войдите или зарегистрируйтесь <span>через телеграм</span>"
+      );
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
 .whyus {
   &__wrapper {

@@ -1,23 +1,78 @@
 <template>
-  <MainHeader />
-  <HeroComponent />
+  <MainHeader
+    :modalText="modalText"
+    :isModalOpen="isModalOpen"
+    @toggleModal="toggleModal"
+    @update:modalText="updateModalText"
+  />
+  <HeroComponent @open-modal="handleHeroModal" />
   <ReportsDecoding />
   <WhyUs />
+  <ServiceOverview @open-modal="handleHeroModal" /> 
+  <Pricing @open-modal="handleHeroModal" />
   <FAQ />
   <div class="container">
     <div class="service__banner">
-    <img src="/images/Vector.png" class="bg_vector" alt="" />
-    <div class="service__banner-left">
-      <h1 class="heading-2">Протестируйте преимущества нашего сервиса</h1>
-      <button>Попробовать 7 дней бесплатно</button>
+      <img src="/images/Vector.png" class="bg_vector" alt="" />
+      <div class="service__banner-left">
+        <h1 class="heading-2">Протестируйте преимущества нашего сервиса</h1>
+        <button @click="openModall">Попробовать 7 дней бесплатно</button>
+      </div>
+      <div class="service__banner-right">
+        <img src="/images/diagram.png" alt="" />
+      </div>
     </div>
-    <div class="service__banner-right">
-      <img src="/images/diagram.png" alt="" />
-    </div>
-  </div>
   </div>
   <Footer />
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      modalText: "",
+      isModalOpen: false,
+    };
+  },
+  provide(){
+    return {
+      scrollTop: this.scrollToTop
+    }
+  },
+  methods: {
+    async openModall() {
+      await this.scrollToTop();
+      this.handleHeroModal("Войдите или зарегистрируйтесь <span>через телеграм</span>");
+    },
+    toggleModal(state) {
+      this.isModalOpen = state;
+    },
+    updateModalText(message) {
+      this.modalText = message;
+    },
+    handleHeroModal(message) {
+      this.modalText = message;
+      this.isModalOpen = true;
+    },
+    scrollToTop() {
+      return new Promise((resolve) => {
+        const checkIfAtTop = () => {
+          if (window.scrollY === 0) {
+            window.removeEventListener("scroll", checkIfAtTop);
+            resolve();
+          }
+        };
+        window.addEventListener("scroll", checkIfAtTop);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (window.scrollY === 0) {
+          resolve();
+        }
+      });
+    },
+  },
+};
+</script>
+
 <style lang="scss" scoped>
 .service__banner {
   position: relative;
@@ -67,7 +122,7 @@
         width: 100%;
       }
     }
-    h1{
+    h1 {
       color: var(--primary-black);
       @media screen and (max-width: 850px) {
         font-size: 30px;

@@ -203,39 +203,25 @@
           3,500 ₽/
           <p class="text-semibold">месяц</p>
         </h1>
-        <button @click="navigateFunction">Оставить заявку</button>
+        <button @click="openModal">Оставить заявку</button>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
+  inject: ['scrollTop'],
   methods: {
-    async navigateFunction() {
-      await this.scrollToTop();
-      setTimeout(() => {
-        navigateTo("/registered");
-      }, 250);
-    },
-    scrollToTop() {
-      return new Promise((resolve) => {
-        const checkIfAtTop = () => {
-          if (window.scrollY === 0) {
-            window.removeEventListener("scroll", checkIfAtTop);
-            resolve();
-          }
-        };
-        window.addEventListener("scroll", checkIfAtTop);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        if (window.scrollY === 0) {
-          resolve();
-        }
-      });
+    async openModal() {
+      await this.scrollTop();
+      this.$emit(
+        "open-modal",
+        "Войдите или зарегистрируйтесь <span>через телеграм</span>"
+      );
     },
   },
 };
 </script>
-
 <style lang="scss" scoped>
 .pricing {
   width: 100%;

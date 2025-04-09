@@ -48,12 +48,27 @@
       </div>
     </div>
     <div class="button">
-      <button>Попробовать 7 дней бесплатно</button>
+      <button @click="openModal">Попробовать 7 дней бесплатно</button>
     </div>
   </div>
 </template>
+<!-- <script>
+export default {
+  inject: ['scrollTop'],
+  methods: {
+    async openModal() {
+      await this.scrollTop();
+      this.$emit(
+        "open-modal",
+        "Войдите или зарегистрируйтесь <span>через телеграм</span>"
+      );
+    },
+  },
+};
+</script> -->
 <script>
 export default {
+  inject: ['scrollTop'],
   data() {
     return {
       showVideo: false,
@@ -71,6 +86,13 @@ export default {
   methods: {
     playVideo() {
       this.showVideo = true
+    },
+    async openModal() {
+      await this.scrollTop();
+      this.$emit(
+        "open-modal",
+        "Войдите или зарегистрируйтесь <span>через телеграм</span>"
+      );
     },
   },
 }

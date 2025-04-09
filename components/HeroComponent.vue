@@ -12,7 +12,7 @@
               Точно расшифровываем отчеты маркетплейсов, показываем чистую
               прибыль и помогаем принимать правильные решения
             </h5>
-            <button>Попробовать 7 дней бесплатно</button>
+            <button @click="openModal">Попробовать 7 дней бесплатно</button>
           </div>
           <div class="service__banner-right">
             <img src="/images/chart.png" alt="" />
@@ -56,6 +56,21 @@
     </div>
   </section>
 </template>
+<script>
+export default {
+  inject: ['scrollTop'],
+  methods: {
+    async openModal() {
+      await this.scrollTop();
+      this.$emit(
+        "open-modal",
+        "Войдите или зарегистрируйтесь <span>через телеграм</span>"
+      );
+    },
+  },
+};
+</script>
+
 <style lang="scss" scoped>
 .hero {
   width: 100%;
