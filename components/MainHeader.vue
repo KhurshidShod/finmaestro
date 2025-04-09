@@ -1,11 +1,15 @@
 <template>
-  <transition @enter="enterModal" @leave="leaveModal" name="fade">
-    <TelegramModal
-      @toggleModal="toggleModal"
-      v-if="isModalOpen"
-      :modalText="modalText"
-    />
-  </transition>
+   <!-- :class="isModalOpen ? 'modal_open' : ''" -->
+  <div class="modal_parent" ref="modalParent">
+    <transition @enter="enterModal" @leave="leaveModal" name="fade">
+      <TelegramModal
+        :is-open="isModalOpen"
+        @toggleModal="toggleModal"
+        v-if="isModalOpen"
+        :modalText="modalText"
+      />
+    </transition>
+  </div>
   <header>
     <div class="container">
       <nav class="nav">
@@ -84,7 +88,8 @@ export default {
   },
   methods: {
     enterModal(el, done) {
-      const tl = gsap.timeline({onComplete: done})
+      this.$refs.modalParent.style.display = "flex";
+      const tl = gsap.timeline({ onComplete: done });
       gsap.fromTo(
         el,
         { opacity: 0, y: -50 },
@@ -96,21 +101,18 @@ export default {
           onComplete: done,
         }
       );
-      tl.to(
-        el,
-        { background: "rgba(0, 0, 0, 0.6)", duration: 0.3, ease: "power2.out" },
-        0.3 
-      );
     },
     leaveModal(el, done) {
       gsap.to(el, {
         opacity: 0,
         y: -50,
         duration: 0.5,
-        background: "transparent",
         ease: "power2.out",
         onComplete: done,
       });
+      setTimeout(() => {
+        this.$refs.modalParent.style.display = "none";
+      }, 500);
     },
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
@@ -128,6 +130,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.modal_parent {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.6);
+  // &.modal_open {
+  //   display: flex;
+  // }
+}
+
 header {
   .nav {
     width: 100%;
