@@ -1,9 +1,11 @@
 <template>
-  <TelegramModal
-    @toggleModal="toggleModal"
-    v-if="isModalOpen"
-    :modalText="modalText"
-  />
+  <transition @enter="enterModal" @leave="leaveModal" name="fade">
+    <TelegramModal
+      @toggleModal="toggleModal"
+      v-if="isModalOpen"
+      :modalText="modalText"
+    />
+  </transition>
   <header>
     <div class="container">
       <nav class="nav">
@@ -66,19 +68,50 @@
 </template>
 
 <script>
+import gsap from "gsap";
+
 export default {
   props: {
     modalText: String,
     isModalOpen: Boolean,
   },
-  
-  emits: ['toggleModal', 'update:modalText'],
+
+  emits: ["toggleModal", "update:modalText"],
   data() {
     return {
       isNavOpen: false,
     };
   },
   methods: {
+    enterModal(el, done) {
+      const tl = gsap.timeline({onComplete: done})
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: -50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          onComplete: done,
+        }
+      );
+      tl.to(
+        el,
+        { background: "rgba(0, 0, 0, 0.6)", duration: 0.3, ease: "power2.out" },
+        0.3 
+      );
+    },
+    leaveModal(el, done) {
+      gsap.to(el, {
+        opacity: 0,
+        y: -50,
+        duration: 0.5,
+        background: "transparent",
+        ease: "power2.out",
+        onComplete: done,
+      });
+    },
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
     },

@@ -47,7 +47,7 @@ export default {
   top: 0;
   left: 0;
   z-index: 99999;
-  background: rgba(0, 0, 0, 0.6);
+  // background: rgba(0, 0, 0, 0.6);
   .container{
     position: relative;
   }
