@@ -10,8 +10,7 @@
                 Спасибо за регистрацию
             </h1>
             <h5 class="heading-5-semibold">
-              Точно расшифровываем отчеты маркетплейсов, показываем чистую
-              прибыль и помогаем принимать правильные решения
+              Активируйте пробный период. Надеемся, вы останетесь довольны нашим сервисом
             </h5>
             <button>Попробовать 7 дней бесплатно</button>
           </div>
@@ -78,13 +77,13 @@
       }
     }
     h5 {
-        margin-top: 12px;
-        color: var(--secondary-text);
-        max-width: 658px;
-        @media screen and (max-width: 450px) {
-          font-size: 18px;
-        }
+      margin-bottom: 12px;
+      color: var(--secondary-text);
+      max-width: 658px;
+      @media screen and (max-width: 450px) {
+        font-size: 18px;
       }
+    }
   }
   &-right {
     width: 45%;
