@@ -1,5 +1,6 @@
 <template>
-  <div class="service__overview">
+  <div class="container">
+    <div class="service__overview">
     <div class="left">
       <h2 class="heading-2">Обзор сервиса</h2>
       <p class="text">
@@ -51,21 +52,8 @@
       <button @click="openModal">Попробовать 7 дней бесплатно</button>
     </div>
   </div>
+  </div>
 </template>
-<!-- <script>
-export default {
-  inject: ['scrollTop'],
-  methods: {
-    async openModal() {
-      await this.scrollTop();
-      this.$emit(
-        "open-modal",
-        "Войдите или зарегистрируйтесь <span>через телеграм</span>"
-      );
-    },
-  },
-};
-</script> -->
 <script>
 export default {
   inject: ['scrollTop'],
