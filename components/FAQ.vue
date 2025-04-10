@@ -61,7 +61,7 @@
 export default {
   data() {
     return {
-      activeDataIndex: null, // Track active item
+      activeDataIndex: null, 
       items: [
         {
           question: "Чем вы отличаетесь от других сервисов?",
@@ -88,7 +88,6 @@ export default {
   },
   methods: {
     setActiveDataIndex(index) {
-      // Toggle the index: if it's active, close it; otherwise, activate it
       this.activeDataIndex = this.activeDataIndex === index ? null : index;
     },
   },

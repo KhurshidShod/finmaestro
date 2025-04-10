@@ -1,5 +1,4 @@
 <template>
-   <!-- :class="isModalOpen ? 'modal_open' : ''" -->
   <div class="modal_parent" ref="modalParent">
     <transition @enter="enterModal" @leave="leaveModal" name="fade">
       <TelegramModal
@@ -88,8 +87,6 @@ export default {
   },
   methods: {
     enterModal(el, done) {
-      // this.$refs.modalParent.style.display = "flex";
-      // this.$refs.modalParent.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
       gsap.fromTo(this.$refs.modalParent,
         {opacity: 0, pointerEvents: 'none'},
         {opacity: 1, pointerEvents: 'all', duration: 0.15, ease: 'power2.out'}
@@ -115,11 +112,9 @@ export default {
         ease: "power2.out",
         onComplete: done,
       });
-      // setTimeout(() => {
         gsap.to(this.$refs.modalParent,
         {opacity: 0, pointerEvents: 'none',duration: 0.5, ease: 'power2.out'},
       )
-      // }, 500);
     },
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
@@ -130,7 +125,7 @@ export default {
     openModal(el) {
       this.toggleModal(true);
       this.$emit("toggleModal", true);
-      this.$emit("update:modalText", el); // Ensure the modalText is updated
+      this.$emit("update:modalText", el);
     },
   },
 };
@@ -138,7 +133,6 @@ export default {
 
 <style lang="scss" scoped>
 .modal_parent {
-  // display: none;
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -149,9 +143,6 @@ export default {
   opacity: 0;
   pointer-events: none;
   transition: .3s linear;
-  // &.modal_open {
-  //   display: flex;
-  // }
 }
 
 header {

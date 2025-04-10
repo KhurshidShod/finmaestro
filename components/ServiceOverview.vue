@@ -60,12 +60,11 @@ export default {
   data() {
     return {
       showVideo: false,
-      videoId: 'f3gOTot5dAA', // Replace with your YouTube video ID
+      videoId: 'f3gOTot5dAA',
     }
   },
   computed: {
     videoUrl() {
-      // Only add autoplay when video is shown
       return this.showVideo
         ? `https://www.youtube.com/embed/${this.videoId}?autoplay=1&rel=0&modestbranding=1&controls=1`
         : ''
