@@ -88,7 +88,12 @@ export default {
   },
   methods: {
     enterModal(el, done) {
-      this.$refs.modalParent.style.display = "flex";
+      // this.$refs.modalParent.style.display = "flex";
+      // this.$refs.modalParent.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
+      gsap.fromTo(this.$refs.modalParent,
+        {opacity: 0, pointerEvents: 'none'},
+        {opacity: 1, pointerEvents: 'all', duration: 0.15, ease: 'power2.out'}
+      )
       const tl = gsap.timeline({ onComplete: done });
       gsap.fromTo(
         el,
@@ -110,9 +115,11 @@ export default {
         ease: "power2.out",
         onComplete: done,
       });
-      setTimeout(() => {
-        this.$refs.modalParent.style.display = "none";
-      }, 500);
+      // setTimeout(() => {
+        gsap.to(this.$refs.modalParent,
+        {opacity: 0, pointerEvents: 'none',duration: 0.5, ease: 'power2.out'},
+      )
+      // }, 500);
     },
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
@@ -131,7 +138,7 @@ export default {
 
 <style lang="scss" scoped>
 .modal_parent {
-  display: none;
+  // display: none;
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -139,6 +146,9 @@ export default {
   left: 0;
   z-index: 99999;
   background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s linear;
   // &.modal_open {
   //   display: flex;
   // }
